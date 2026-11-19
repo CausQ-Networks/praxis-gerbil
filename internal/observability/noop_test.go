@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/fosrl/gerbil/internal/observability"
+	"github.com/CausQ-Networks/praxis-gerbil/internal/observability"
 )
 
 func TestNoopBackendAllInstruments(t *testing.T) {

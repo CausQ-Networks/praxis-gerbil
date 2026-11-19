@@ -4,9 +4,9 @@ Gerbil is a simple [WireGuard](https://www.wireguard.com/) interface management 
 
 ### Installation and Documentation
 
-Gerbil works with Pangolin, Newt, and Olm as part of the larger system. See documentation below:
+Gerbil works with Praxis, Newt, and Olm as part of the larger system. See documentation below:
 
--   [Full Documentation](https://docs.pangolin.net)
+-   [Full Documentation](https://docs.praxis.causq.com)
 
 ## Key Functions
 
@@ -28,17 +28,17 @@ Gerbil listens on port 21820 for incoming UDP hole punch packets to orchestrate 
 
 ### SNI Proxy
 
-Gerbil includes an SNI (Server Name Indication) proxy that enables intelligent routing of HTTPS traffic between Pangolin nodes. When a TLS connection comes in, the proxy extracts the hostname from the SNI extension and queries Pangolin to determine the correct routing destination. This allows seamless routing of web traffic through the WireGuard mesh network:
+Gerbil includes an SNI (Server Name Indication) proxy that enables intelligent routing of HTTPS traffic between Praxis nodes. When a TLS connection comes in, the proxy extracts the hostname from the SNI extension and queries Praxis to determine the correct routing destination. This allows seamless routing of web traffic through the WireGuard mesh network:
 
 - If the hostname is configured for local handling (via local overrides or local SNIs), traffic is routed to the local proxy
-- Otherwise, the proxy queries Pangolin's routing API to determine which node should handle the traffic
+- Otherwise, the proxy queries Praxis's routing API to determine which node should handle the traffic
 - Supports caching of routing decisions to improve performance
 - Handles connection pooling and graceful shutdown
 - Optional PROXY protocol v1 support to preserve original client IP addresses when forwarding to downstream proxies (HAProxy, Nginx, etc.)
 
 The PROXY protocol allows downstream proxies to know the real client IP address instead of seeing the SNI proxy's IP. When enabled with `--proxy-protocol`, the SNI proxy will prepend a PROXY protocol header to each connection containing the original client's IP and port information.
 
-In single node (self hosted) Pangolin deployments this can be bypassed by using port 443:443 to route to Traefik instead of the SNI proxy at 8443.
+In single node (self hosted) Praxis deployments this can be bypassed by using port 443:443 to route to Traefik instead of the SNI proxy at 8443.
 
 ### Observability with OpenTelemetry
 
@@ -117,19 +117,19 @@ Example:
 ./gerbil \
 --reachableAt=http://gerbil:3004 \
 --generateAndSaveKeyTo=/var/config/key \
---remoteConfig=http://pangolin:3001/api/v1/
+--remoteConfig=http://praxis:3001/api/v1/
 ```
 
 ```yaml
 services:
   gerbil:
-    image: fosrl/gerbil
+    image: causq-networks/praxis-gerbil
     container_name: gerbil
     restart: unless-stopped
     command:
       - --reachableAt=http://gerbil:3004
       - --generateAndSaveKeyTo=/var/config/key
-      - --remoteConfig=http://pangolin:3001/api/v1/
+      - --remoteConfig=http://praxis:3001/api/v1/
     volumes:
       - ./config/:/var/config
     cap_add:

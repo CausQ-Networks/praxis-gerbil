@@ -18,8 +18,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/fosrl/gerbil/internal/metrics"
-	"github.com/fosrl/gerbil/logger"
+	"github.com/CausQ-Networks/praxis-gerbil/internal/metrics"
+	"github.com/CausQ-Networks/praxis-gerbil/logger"
 	"github.com/patrickmn/go-cache"
 )
 

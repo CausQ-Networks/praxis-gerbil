@@ -1,4 +1,4 @@
-module github.com/fosrl/gerbil
+module github.com/CausQ-Networks/praxis-gerbil
 
 go 1.26.9
 

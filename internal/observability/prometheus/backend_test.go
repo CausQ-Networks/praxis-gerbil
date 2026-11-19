@@ -8,7 +8,7 @@ import (
 	"strings"
 	"testing"
 
-	obsprom "github.com/fosrl/gerbil/internal/observability/prometheus"
+	obsprom "github.com/CausQ-Networks/praxis-gerbil/internal/observability/prometheus"
 )
 
 func newTestBackend(t *testing.T) *obsprom.Backend {

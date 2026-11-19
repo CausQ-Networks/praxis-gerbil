@@ -27,10 +27,10 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/fosrl/gerbil/internal/metrics"
-	"github.com/fosrl/gerbil/logger"
-	"github.com/fosrl/gerbil/proxy"
-	"github.com/fosrl/gerbil/relay"
+	"github.com/CausQ-Networks/praxis-gerbil/internal/metrics"
+	"github.com/CausQ-Networks/praxis-gerbil/logger"
+	"github.com/CausQ-Networks/praxis-gerbil/proxy"
+	"github.com/CausQ-Networks/praxis-gerbil/relay"
 	"github.com/vishvananda/netlink"
 	"golang.org/x/sync/errgroup"
 	"golang.zx2c4.com/wireguard/wgctrl"
@@ -192,7 +192,7 @@ func logDebugRequest(label string, req *http.Request) {
 	logger.Debug("%s: %s %s://%s%s headers:%s\nbody: %s", label, req.Method, req.URL.Scheme, req.Host, req.URL.RequestURI(), headerLines.String(), body)
 }
 
-// routerProxy forwards /router/* requests from the Pangolin AI gateway to a
+// routerProxy forwards /router/* requests from the Praxis AI gateway to a
 // destination on the WireGuard network, as named by pangolinDestHeader.
 // Used for proxying AI chat completion requests (incl. streaming) to
 // providers reachable only from a site.
@@ -401,7 +401,7 @@ func main() {
 		flag.StringVar(&configFile, "config", "", "Path to local configuration file")
 	}
 	if remoteConfigURL == "" {
-		flag.StringVar(&remoteConfigURL, "remoteConfig", "", "URL of the Pangolin server")
+		flag.StringVar(&remoteConfigURL, "remoteConfig", "", "URL of the Praxis server")
 	}
 	if listenAddr == "" {
 		flag.StringVar(&listenAddr, "listen", "", "DEPRECATED (overridden by reachableAt): Address to listen on")
@@ -1458,7 +1458,7 @@ func removePeerInternal(publicKey string) error {
 }
 
 // UpdatePeerBandwidthRequest is the payload for /update-peer-bandwidth, letting an external service
-// (e.g. the Pangolin control plane) change the traffic-shaping limit for a single peer at runtime.
+// (e.g. the Praxis control plane) change the traffic-shaping limit for a single peer at runtime.
 type UpdatePeerBandwidthRequest struct {
 	PublicKey      string `json:"publicKey"`
 	BandwidthLimit string `json:"bandwidthLimit"`

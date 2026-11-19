@@ -11,7 +11,7 @@ import (
 	"net/http"
 	"sync"
 
-	"github.com/fosrl/gerbil/internal/observability"
+	"github.com/CausQ-Networks/praxis-gerbil/internal/observability"
 )
 
 // Config is the metrics configuration type. It is an alias for

@@ -8,14 +8,14 @@ docker-build-release:
 		echo "Error: tag is required. Usage: make docker-build-release tag=<tag>"; \
 		exit 1; \
 	fi
-	docker buildx build --platform linux/arm64,linux/amd64 -t fosrl/gerbil:latest -f Dockerfile --push .
-	docker buildx build --platform linux/arm64,linux/amd64 -t fosrl/gerbil:$(tag) -f Dockerfile --build-arg GO_VERSION=$(GO_VERSION) --push .
+	docker buildx build --platform linux/arm64,linux/amd64 -t causq-networks/praxis-gerbil:latest -f Dockerfile --push .
+	docker buildx build --platform linux/arm64,linux/amd64 -t causq-networks/praxis-gerbil:$(tag) -f Dockerfile --build-arg GO_VERSION=$(GO_VERSION) --push .
 
 build:
-	docker build -t fosrl/gerbil:latest --build-arg GO_VERSION=$(GO_VERSION) .
+	docker build -t causq-networks/praxis-gerbil:latest --build-arg GO_VERSION=$(GO_VERSION) .
 
 push:
-	docker push fosrl/gerbil:latest
+	docker push causq-networks/praxis-gerbil:latest
 
 test:
 	docker run -it -p 3002:3002 -v ./config_example.json:/config/config.json --cap-add=NET_ADMIN --cap-add=SYS_MODULE gerbil --config /config/config.json

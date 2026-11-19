@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/fosrl/gerbil/internal/observability"
+	"github.com/CausQ-Networks/praxis-gerbil/internal/observability"
 )
 
 const (

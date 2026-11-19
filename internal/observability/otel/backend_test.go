@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	obsotel "github.com/fosrl/gerbil/internal/observability/otel"
+	obsotel "github.com/CausQ-Networks/praxis-gerbil/internal/observability/otel"
 )
 
 const (

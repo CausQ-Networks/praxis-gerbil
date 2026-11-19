@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"net/http"
 
-	obsotel "github.com/fosrl/gerbil/internal/observability/otel"
-	obsprom "github.com/fosrl/gerbil/internal/observability/prometheus"
+	obsotel "github.com/CausQ-Networks/praxis-gerbil/internal/observability/otel"
+	obsprom "github.com/CausQ-Networks/praxis-gerbil/internal/observability/prometheus"
 )
 
 // Labels is a set of key-value pairs attached to a metric observation.

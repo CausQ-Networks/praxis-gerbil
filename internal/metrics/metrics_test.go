@@ -8,8 +8,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/fosrl/gerbil/internal/metrics"
-	"github.com/fosrl/gerbil/internal/observability"
+	"github.com/CausQ-Networks/praxis-gerbil/internal/metrics"
+	"github.com/CausQ-Networks/praxis-gerbil/internal/observability"
 )
 
 const exampleHostname = "example.com"

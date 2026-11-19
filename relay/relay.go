@@ -17,8 +17,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/fosrl/gerbil/internal/metrics"
-	"github.com/fosrl/gerbil/logger"
+	"github.com/CausQ-Networks/praxis-gerbil/internal/metrics"
+	"github.com/CausQ-Networks/praxis-gerbil/logger"
 	"golang.org/x/crypto/chacha20poly1305"
 	"golang.org/x/crypto/curve25519"
 	"golang.zx2c4.com/wireguard/wgctrl/wgtypes"

@@ -97,7 +97,7 @@ func New(cfg Config) (*Backend, error) {
 		sdkmetric.WithReader(reader),
 	)
 
-	meter := provider.Meter("github.com/fosrl/gerbil")
+	meter := provider.Meter("github.com/CausQ-Networks/praxis-gerbil")
 
 	return &Backend{cfg: cfg, provider: provider, meter: meter}, nil
 }
